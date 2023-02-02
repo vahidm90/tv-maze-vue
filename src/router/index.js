@@ -1,11 +1,17 @@
 import { createRouter, createWebHashHistory } from "vue-router";
 import HomeView from "../views/HomeView.vue";
+import ShowView from "@/views/ShowView.vue";
+import { SHOW_PATH_PARAM_NAME } from "@/router/route-partials.config";
 
 const routes = [
   {
     path: "/",
     name: "home",
     component: HomeView,
+  },
+  {
+    path: `/shows/:${SHOW_PATH_PARAM_NAME}`,
+    component: ShowView,
   },
   {
     path: "/about",

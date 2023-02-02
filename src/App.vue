@@ -1,30 +1,31 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </nav>
+  <TopBar />
   <router-view />
 </template>
+<script>
+import TopBar from "@/components/TopBar.vue";
 
+export default {
+  name: "App",
+  components: { TopBar },
+};
+</script>
 <style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+.top-ribbon {
+  background-color: $primary-color;
+  height: 50px;
+  display: flex;
+  padding: 16px;
+  align-items: center;
 
-nav {
-  padding: 30px;
+  .app-title {
+    font-size: 16px;
+    color: #ffffff;
+    margin: 0;
+  }
 
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
+  .tools {
+    margin: 0 0 0 auto;
   }
 }
 </style>
