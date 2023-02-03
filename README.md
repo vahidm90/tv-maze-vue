@@ -1,5 +1,7 @@
 # tv-maze-vue
 
+## this is just a duplicate of [another angular application](https://github.com/vahidm90/tv-maze-ng). 
+
 ## Project setup
 ```
 npm install
@@ -13,11 +15,6 @@ npm run serve
 ### Compiles and minifies for production
 ```
 npm run build
-```
-
-### Run your unit tests
-```
-npm run test:unit
 ```
 
 ### Lints and fixes files
