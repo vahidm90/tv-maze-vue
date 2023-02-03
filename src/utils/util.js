@@ -11,7 +11,7 @@ export const UTIL = {
           (genre) =>
             (listByGenre[genre] = [...(listByGenre[genre] ?? []), show])
         );
-      else listByGenre.Miscellaneous?.push(show);
+      else listByGenre.Miscellaneous.push(show);
     });
     return listByGenre;
   },

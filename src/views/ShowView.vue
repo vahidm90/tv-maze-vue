@@ -1,28 +1,33 @@
 <template>
-  <ShowDetails v-if="showDetails" :show-details="showDetails"></ShowDetails>
+  <div class="page-wrap">
+    <ShowDetails v-if="showDetails" :show-details="showDetails"></ShowDetails>
+  </div>
 </template>
 
 <script>
-import { DEFAULT_IMAGE } from "@/helpers/default-image";
 import { SHOW_PATH_PARAM_NAME } from "@/router/route-partials.config";
 import { getShowDetails } from "@/api/api-calls";
 import ShowDetails from "@/components/ShowDetails.vue";
 
 export default {
   name: "ShowView",
+  props: [SHOW_PATH_PARAM_NAME],
   data() {
     return {
       showDetails: null,
     };
   },
   components: { ShowDetails },
-  computed: {
-    src: () => this.showDetails.image?.original || DEFAULT_IMAGE,
-  },
   created() {
-    getShowDetails(this.$route.params[SHOW_PATH_PARAM_NAME]).then(
+    getShowDetails(this[SHOW_PATH_PARAM_NAME]).then(
       (details) => (this.showDetails = details)
     );
   },
 };
 </script>
+<style scoped lang="scss">
+.page-wrap {
+  background-color: #000;
+  color: #fff;
+}
+</style>

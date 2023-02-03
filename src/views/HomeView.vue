@@ -1,5 +1,5 @@
 <template>
-  <div class="page-wrap">
+  <div v-if="showsByGenre" class="page-wrap">
     <ShowCarousel
       v-for="(genre, index) in Object.keys(showsByGenre)"
       :key="`genre-${index}`"

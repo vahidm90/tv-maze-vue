@@ -1,5 +1,6 @@
 <template>
   <RouterLink
+    v-if="show"
     class="card-link plain-link"
     :title="show.name"
     :to="'/shows/' + show.id"
@@ -16,10 +17,12 @@ import { DEFAULT_IMAGE } from "@/helpers/default-image";
 export default {
   name: "ShowCard",
   props: {
-    show: Object,
+    show: { type: Object, required: true },
   },
   computed: {
-    backgroundImage: () => `url(${this.show.image?.medium || DEFAULT_IMAGE})`,
+    backgroundImage() {
+      return `url('${this.show.image?.medium || DEFAULT_IMAGE}')`;
+    },
   },
 };
 </script>

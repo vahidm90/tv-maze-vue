@@ -3,7 +3,7 @@
     <div class="small-screen-search">
       <div class="input-wrap">
         <input
-          v-if="showInput"
+          v-if="isSearchInputVisible"
           type="text"
           v-model="input"
           @keyup="(event) => onInputKeyUp(event)"
@@ -23,7 +23,12 @@
         />
       </div>
     </div>
-    <button class="toggle" @click="showInput = !showInput">Search</button>
+    <button
+      class="toggle"
+      @click="isSearchInputVisible = !isSearchInputVisible"
+    >
+      Search
+    </button>
   </div>
 </template>
 
@@ -34,19 +39,22 @@ import { UTIL } from "@/utils/util";
 export default {
   name: "TopBarSearch",
   methods: {
-    onInputKeyUp: (event) => {
+    onInputKeyUp(event) {
       if (event.key === "Enter") {
-        this.$router.replace(
+        this.$router.push(
           `/search?${SEARCH_QUERY_PARAM_NAME}=${encodeURIComponent(
             UTIL.sanitizeSearchTerm(this.input)
           )}`
         );
+        this.input = "";
+        this.isSearchInputVisible = false;
       }
     },
   },
   data() {
     return {
-      showInput: false,
+      isSearchInputVisible: false,
+      input: "",
     };
   },
 };

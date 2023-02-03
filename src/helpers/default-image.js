@@ -1,1 +1,1 @@
-export const DEFAULT_IMAGE = "/assets/img/default-thumb.png";
+export const DEFAULT_IMAGE = "./static/img/default-thumb.png";

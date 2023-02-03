@@ -1,26 +1,28 @@
 import { createRouter, createWebHashHistory } from "vue-router";
 import HomeView from "../views/HomeView.vue";
 import ShowView from "@/views/ShowView.vue";
-import { SHOW_PATH_PARAM_NAME } from "@/router/route-partials.config";
+import {
+  SEARCH_QUERY_PARAM_NAME,
+  SHOW_PATH_PARAM_NAME,
+} from "@/router/route-partials.config";
+import SearchView from "@/views/SearchView.vue";
 
 const routes = [
   {
     path: "/",
-    name: "home",
     component: HomeView,
   },
   {
     path: `/shows/:${SHOW_PATH_PARAM_NAME}`,
     component: ShowView,
+    props: true,
   },
   {
-    path: "/about",
-    name: "about",
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () =>
-      import(/* webpackChunkName: "about" */ "../views/AboutView.vue"),
+    path: "/search",
+    component: SearchView,
+    props: (route) => ({
+      [SEARCH_QUERY_PARAM_NAME]: route.query[SEARCH_QUERY_PARAM_NAME],
+    }),
   },
 ];
 

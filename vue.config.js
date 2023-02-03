@@ -3,8 +3,8 @@ module.exports = defineConfig({
   transpileDependencies: true,
   css: {
     loaderOptions: {
-      sass: {
-        data: `@import "@/styles/colors";@import "@/styles/globals";`,
+      scss: {
+        additionalData: `@import "@/styles/colors";@import "@/styles/globals";`,
       },
     },
   },
