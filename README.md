@@ -1,6 +1,6 @@
 # tv-maze-vue
 
-## this is just a duplicate of [another angular application](https://github.com/vahidm90/tv-maze-ng). 
+this is just a duplicate of [another angular application](https://github.com/vahidm90/tv-maze-ng). 
 
 ## Project setup
 ```
